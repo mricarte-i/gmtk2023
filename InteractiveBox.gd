@@ -37,6 +37,7 @@ func start_reload() -> void:
 func finish_reload() -> void:
 	preview.modulate = Color(255, 255, 255, 1)
 	reload.visible = false
+	inventory = MAX_ITEMS
 
 
 func interaction(player: KinematicBody) -> void:

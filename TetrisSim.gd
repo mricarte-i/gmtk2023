@@ -204,7 +204,7 @@ func findBestPosition(pieceName: String) -> void:
 	for rotation in range(4):
 		var piece = getRotatedPiece(pieceName, rotation)
 		#don't try to put a piece beyond the play area!
-		for x in range(WIDTH - piece[0].size() -1):
+		for x in range(WIDTH - piece[0].size()):
 			var evaluated = evaluatePosition(piece, x, rotation)
 			var score = evaluated.score
 			var sim = evaluated.sim
@@ -244,9 +244,9 @@ func evaluatePosition(piece: Array, x: int, rotation: int) -> Dictionary:
 func findDropPosition(piece: Array, pos: Vector2) -> int:
 	var notOverTheTop = false
 	var dropPos = pos.y
-	while dropPos < 19 and canMoveDown(piece, Vector2(pos.x, dropPos)):
+	while dropPos < HEIGHT - piece.size() and canMoveDown(piece, Vector2(pos.x, dropPos)):
 		notOverTheTop = true
-		if dropPos <= 18:
+		if dropPos <= HEIGHT - piece.size() - 1:
 			dropPos += 1
 	
 	#if first attempt fails, game over man!
@@ -259,8 +259,8 @@ func findDropPosition(piece: Array, pos: Vector2) -> int:
 	return dropPos
 
 func canMoveDown(piece: Array, pos: Vector2) -> bool:
-	for i in range(piece.size() - 1):
-		for j in range(piece[i].size() -1):
+	for i in range(piece.size()):
+		for j in range(piece[i].size()):
 			if(board[pos.y + i][pos.x + j] == 1 and piece[i][j] == 1):
 				return false
 			if pos.y + i >= HEIGHT or pos.x + j >= WIDTH:
@@ -269,8 +269,8 @@ func canMoveDown(piece: Array, pos: Vector2) -> bool:
 
 func simulateBoard(piece: Array, pos: Vector2) -> Array:
 	var sim = board.duplicate(true)
-	for i in range(piece.size() - 1):
-		for j in range(piece[i].size() -1 ):
+	for i in range(piece.size()):
+		for j in range(piece[i].size()):
 			if(piece[i][j] == 1):
 				sim[pos.y + i][pos.x + j] = 1
 	return sim
@@ -296,7 +296,7 @@ func getTallestPoint(b: Array) -> int:
 				isEmpty = false
 				break
 		if !isEmpty:
-			height = board.size() - i
+			height = i
 			break
 			
 	return height
