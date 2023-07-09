@@ -48,11 +48,20 @@ func get_input(delta:float) -> void:
 func _physics_process(delta: float) -> void:
 	velocity += gravity * delta
 	get_input(delta)
-	if interact.is_colliding() and Input.is_action_pressed("interact"):
+	if interact.is_colliding():
 		var thing = interact.get_collider()
 		if thing is CSGBox:
 			thing = thing.get_parent()
-		if thing.has_method("interaction"):
+		if thing.has_method("interaction") and Input.is_action_just_pressed("interact"):
 			thing.interaction(self)
+
 	
 	velocity = move_and_slide(motion, Vector3.UP)
+
+
+func _on_DropArea_body_entered(body: Node) -> void:
+	pass # Replace with function body.
+
+
+func _on_DropArea_body_exited(body: Node) -> void:
+	pass # Replace with function body.

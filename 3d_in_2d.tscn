@@ -1,41 +1,13 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://3d_in_2d.gd" type="Script" id=1]
-[ext_resource path="res://robot_demo.png" type="Texture" id=2]
+[ext_resource path="res://blocks/block4.png" type="Texture" id=2]
 [ext_resource path="res://robot_3d.tscn" type="PackedScene" id=3]
 [ext_resource path="res://TetrisSim.gd" type="Script" id=4]
 [ext_resource path="res://Game.gd" type="Script" id=5]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
-
-[sub_resource type="AtlasTexture" id=2]
-atlas = ExtResource( 2 )
-region = Rect2( 0, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=3]
-atlas = ExtResource( 2 )
-region = Rect2( 64, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=4]
-atlas = ExtResource( 2 )
-region = Rect2( 128, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=5]
-atlas = ExtResource( 2 )
-region = Rect2( 192, 0, 64, 64 )
-
-[sub_resource type="AtlasTexture" id=6]
-atlas = ExtResource( 2 )
-region = Rect2( 256, 0, 64, 64 )
-
-[sub_resource type="SpriteFrames" id=7]
-animations = [ {
-"frames": [ SubResource( 2 ), SubResource( 3 ), SubResource( 4 ), SubResource( 5 ), SubResource( 6 ) ],
-"loop": true,
-"name": "default",
-"speed": 5.0
-} ]
 
 [node name="3Din2D" type="Node2D"]
 script = ExtResource( 1 )
@@ -56,14 +28,1448 @@ scale = Vector2( 1, -1 )
 texture = SubResource( 1 )
 centered = false
 
-[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
-position = Vector2( 350, 300 )
-scale = Vector2( 3, 3 )
-frames = SubResource( 7 )
-
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
+
+[node name="Control" type="Control" parent="Camera2D"]
+anchor_bottom = 1.0
+margin_top = -33.0
+margin_bottom = -33.0
+rect_scale = Vector2( 2, 2 )
+
+[node name="tetris" type="VBoxContainer" parent="Camera2D/Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 50.0
+margin_top = 50.0
+margin_right = 65.0
+margin_bottom = 64.0
+custom_constants/separation = 0
+
+[node name="row" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_right = 160.0
+margin_bottom = 16.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row2" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 16.0
+margin_right = 160.0
+margin_bottom = 32.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row2"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row3" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 32.0
+margin_right = 160.0
+margin_bottom = 48.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row3"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row4" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 48.0
+margin_right = 160.0
+margin_bottom = 64.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row4"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row5" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 64.0
+margin_right = 160.0
+margin_bottom = 80.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row5"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row6" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 80.0
+margin_right = 160.0
+margin_bottom = 96.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row6"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row7" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 96.0
+margin_right = 160.0
+margin_bottom = 112.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row7"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row8" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 112.0
+margin_right = 160.0
+margin_bottom = 128.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row8"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row9" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 128.0
+margin_right = 160.0
+margin_bottom = 144.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row9"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row10" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 144.0
+margin_right = 160.0
+margin_bottom = 160.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row10"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row11" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 160.0
+margin_right = 160.0
+margin_bottom = 176.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row11"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row12" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 176.0
+margin_right = 160.0
+margin_bottom = 192.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row12"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row13" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 192.0
+margin_right = 160.0
+margin_bottom = 208.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row13"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row14" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 208.0
+margin_right = 160.0
+margin_bottom = 224.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row14"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row15" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 224.0
+margin_right = 160.0
+margin_bottom = 240.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row15"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row16" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 240.0
+margin_right = 160.0
+margin_bottom = 256.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row16"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row17" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 256.0
+margin_right = 160.0
+margin_bottom = 272.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row17"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row18" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 272.0
+margin_right = 160.0
+margin_bottom = 288.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row18"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="row19" type="HBoxContainer" parent="Camera2D/Control/tetris"]
+margin_top = 288.0
+margin_right = 160.0
+margin_bottom = 304.0
+custom_constants/separation = 0
+
+[node name="TextureRect" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_right = 16.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect2" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_left = 16.0
+margin_right = 32.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect3" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_left = 32.0
+margin_right = 48.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect4" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_left = 48.0
+margin_right = 64.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect5" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_left = 64.0
+margin_right = 80.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect6" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_left = 80.0
+margin_right = 96.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect7" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_left = 96.0
+margin_right = 112.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect8" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_left = 112.0
+margin_right = 128.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect9" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_left = 128.0
+margin_right = 144.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
+
+[node name="TextureRect10" type="TextureRect" parent="Camera2D/Control/tetris/row19"]
+margin_left = 144.0
+margin_right = 160.0
+margin_bottom = 16.0
+rect_clip_content = true
+texture = ExtResource( 2 )
 
 [node name="TetrisSim" type="Node" parent="."]
 script = ExtResource( 4 )

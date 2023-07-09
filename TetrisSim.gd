@@ -1,6 +1,9 @@
 extends Node
+class_name TetrisSim
 
 export(Texture) var tile_texture
+
+onready var game = $"../Game"
 
 #width= 10, height= 20
 const WIDTH = 10
@@ -191,6 +194,9 @@ func _ready() -> void:
 # TO DO: 
 # clearLines()
 
+func getBoard() -> Array:
+	return board
+
 func findBestPosition(pieceName: String) -> void:
 	var bestScore = -1
 	var bestNextBoard = board
@@ -209,6 +215,8 @@ func findBestPosition(pieceName: String) -> void:
 	
 	#signal to game the score!
 	#if it was -1 then game over!
+	if bestScore == -1:
+		game.game_over()
 	
 	board = bestNextBoard #hopefully this will update the drawn pieces...
 
