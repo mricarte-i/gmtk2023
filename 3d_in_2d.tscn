@@ -1,8 +1,10 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=13 format=2]
 
 [ext_resource path="res://3d_in_2d.gd" type="Script" id=1]
 [ext_resource path="res://robot_demo.png" type="Texture" id=2]
 [ext_resource path="res://robot_3d.tscn" type="PackedScene" id=3]
+[ext_resource path="res://TetrisSim.gd" type="Script" id=4]
+[ext_resource path="res://Game.gd" type="Script" id=5]
 
 [sub_resource type="ViewportTexture" id=1]
 viewport_path = NodePath("Viewport")
@@ -62,3 +64,9 @@ frames = SubResource( 7 )
 [node name="Camera2D" type="Camera2D" parent="."]
 anchor_mode = 0
 current = true
+
+[node name="TetrisSim" type="Node" parent="."]
+script = ExtResource( 4 )
+
+[node name="Game" type="Node2D" parent="."]
+script = ExtResource( 5 )
