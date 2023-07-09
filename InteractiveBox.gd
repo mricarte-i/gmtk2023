@@ -24,9 +24,6 @@ func _ready() -> void:
 	reload.visible = false
 	preview.texture = Preview
 
-func _process(delta: float) -> void:
-	if inventory == 0:
-		start_reload()
 
 
 func start_reload() -> void:
@@ -48,6 +45,9 @@ func interaction(player: KinematicBody) -> void:
 		get_parent().add_child(newPiece)
 		sound.play(0)
 		inventory -= 1
+		
+		if inventory == 0:
+			start_reload()
 	
 		newPiece.transform.origin =  player.transform.origin + Vector3.UP*DISTANCE
 

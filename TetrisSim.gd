@@ -280,11 +280,13 @@ func getNumberOfClearedLines(b: Array) -> int:
 	for i in range(b.size()):
 		var isFull = true
 		for j in range(b[i].size()):
-			if b[i][j] != 0:
+			if b[i][j] == 0:
 				isFull = false
 				break
 		if isFull:
 			clearedLines += 1
+			
+	print("lines ", clearedLines)
 	return clearedLines
 	
 func getTallestPoint(b: Array) -> int:
