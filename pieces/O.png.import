@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/block3.png-6c536115b11074345532553b69ca4a40.stex"
+path="res://.import/O.png-1199794698d146f5d1385e692e137e3f.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://block3.png"
-dest_files=[ "res://.import/block3.png-6c536115b11074345532553b69ca4a40.stex" ]
+source_file="res://pieces/O.png"
+dest_files=[ "res://.import/O.png-1199794698d146f5d1385e692e137e3f.stex" ]
 
 [params]
 
@@ -20,10 +20,10 @@ compress/hdr_mode=0
 compress/bptc_ldr=0
 compress/normal_map=0
 flags/repeat=0
-flags/filter=true
+flags/filter=false
 flags/mipmaps=false
 flags/anisotropic=false
-flags/srgb=2
+flags/srgb=1
 process/fix_alpha_border=true
 process/premult_alpha=false
 process/HDR_as_SRGB=false
@@ -31,5 +31,5 @@ process/invert_color=false
 process/normal_map_invert_y=false
 stream=false
 size_limit=0
-detect_3d=true
+detect_3d=false
 svg/scale=1.0

@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://materials/kenney_green.tres" type="Material" id=1]
+[ext_resource path="res://pieces/S.png" type="Texture" id=2]
+[ext_resource path="res://pieces/O.png" type="Texture" id=3]
+[ext_resource path="res://reloading.png" type="Texture" id=4]
+[ext_resource path="res://InteractiveBox.gd" type="Script" id=5]
+
+[sub_resource type="BoxShape" id=20]
+extents = Vector3( 2, 4, 2 )
+
+[node name="Interactive" type="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7, -1, -7 )
+script = ExtResource( 5 )
+Preview = ExtResource( 2 )
+
+[node name="CollisionShape" type="CollisionShape" parent="."]
+shape = SubResource( 20 )
+
+[node name="Box" type="CSGBox" parent="."]
+use_collision = true
+height = 4.0
+material = ExtResource( 1 )
+
+[node name="preview" type="Sprite3D" parent="."]
+transform = Transform( 6, 0, 0, 0, 6, 0, 0, 0, 1, 0, 3, 0 )
+billboard = 1
+texture = ExtResource( 3 )
+
+[node name="reload" type="Sprite3D" parent="."]
+transform = Transform( 4, 0, 0, 0, 4, 0, 0, 0, 1, 0, 3.3984, 0 )
+billboard = 1
+texture = ExtResource( 4 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 5.0
+
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
