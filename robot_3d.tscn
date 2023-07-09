@@ -1,9 +1,11 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://robot_3d.gd" type="Script" id=1]
 [ext_resource path="res://kenney_dark.tres" type="Material" id=2]
 [ext_resource path="res://kenney_orange.tres" type="Material" id=3]
 [ext_resource path="res://addons/kenney_particle_pack/magic_03.png" type="Texture" id=4]
+[ext_resource path="res://body.png" type="Texture" id=5]
+[ext_resource path="res://player.gd" type="Script" id=6]
 
 [sub_resource type="SpatialMaterial" id=1]
 albedo_color = Color( 0.670157, 0.654471, 0.701569, 1 )
@@ -102,6 +104,17 @@ color_ramp = SubResource( 10 )
 
 [sub_resource type="QuadMesh" id=15]
 
+[sub_resource type="SphereShape" id=16]
+radius = 1.39302
+
+[sub_resource type="QuadMesh" id=17]
+size = Vector2( 2, 3 )
+
+[sub_resource type="SpatialMaterial" id=18]
+flags_transparent = true
+params_billboard_mode = 1
+albedo_texture = ExtResource( 5 )
+
 [node name="Robot3D" type="Spatial"]
 script = ExtResource( 1 )
 
@@ -126,12 +139,14 @@ light_color = Color( 0.816406, 1, 0.995697, 1 )
 
 [node name="CSGBox" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0 )
+use_collision = true
 width = 20.0
 depth = 20.0
 material = ExtResource( 3 )
 
 [node name="CSGBox2" type="CSGBox" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0 )
+use_collision = true
 width = 30.0
 depth = 30.0
 material = ExtResource( 2 )
@@ -149,3 +164,14 @@ amount = 16
 lifetime = 2.34
 process_material = SubResource( 14 )
 draw_pass_1 = SubResource( 15 )
+
+[node name="player" type="KinematicBody" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.77208, -0.178299, 0 )
+script = ExtResource( 6 )
+
+[node name="CollisionShape" type="CollisionShape" parent="player"]
+shape = SubResource( 16 )
+
+[node name="MeshInstance" type="MeshInstance" parent="player"]
+mesh = SubResource( 17 )
+material/0 = SubResource( 18 )
