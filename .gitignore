@@ -4,7 +4,7 @@
 # Godot-specific ignores
 .import/
 export.cfg
-export_presets.cfg
+#export_presets.cfg (encryption is back in the menu)
 
 # Imported translations (automatically generated from CSV files)
 *.translation
