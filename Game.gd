@@ -1,11 +1,12 @@
 extends Node2D
 
 onready var sim = $"../TetrisSim"
-onready var board = $"../Camera2D/Control/tetris"
+onready var UIboard = $"../Camera2D/Control/tetris"
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	Global.set_uigame(self)
 	draw_board()
 
 func game_over() -> void:
@@ -18,13 +19,14 @@ func get_piece(piece: String) -> void:
 	
 func draw_board() -> void:
 	var board = sim.getBoard()
-	var rows = board.get_children()
+	var rows = UIboard.get_children()
 	for i in range(rows.size()):
-		for j in range(rows[i].size()):
+		var cols = rows[i].get_children()
+		for j in range(cols.size()):
 			if board[i][j] == 1:
-				rows[i][j].modulate = Color(255,255,255,1)
+				cols[j].modulate = Color(255,255,255,1)
 			else:
-				rows[i][j].modulate = Color(0,0,0,0)
+				cols[j].modulate = Color(0,0,0,0)
 # TO DO:
 # - connect to 3D world game, when a piece is in the dispatch zone,
 # take it, read its pieceName, kill 3D piece, give pieceName to

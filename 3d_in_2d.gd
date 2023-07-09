@@ -8,7 +8,6 @@ onready var viewport_sprite = $ViewportSprite
 
 
 func _ready():
-	$AnimatedSprite.play()
 	#warning-ignore:return_value_discarded
 	get_viewport().connect("size_changed", self, "_root_viewport_size_changed")
 	viewport_initial_size = viewport.size

@@ -22,9 +22,11 @@ func _on_DropArea_body_exited(body: Node) -> void:
 
 
 func _on_Timer_timeout() -> void:
-	if info != null:
+	if info != null and info.has_method("get_info"):
 		#call tetris game and pass info.get_info()
-		print("GOT ", info.get_info())
+		var pieceName = info.get_info()
+		print("GOT ", pieceName)
+		Global.pass_piece(pieceName)
 		info.kill()
 		sound.play(0)
 		print("GOGOGO")

@@ -244,27 +244,33 @@ func evaluatePosition(piece: Array, x: int, rotation: int) -> Dictionary:
 func findDropPosition(piece: Array, pos: Vector2) -> int:
 	var notOverTheTop = false
 	var dropPos = pos.y
-	while canMoveDown(piece, Vector2(pos.x, dropPos)):
+	while dropPos < 19 and canMoveDown(piece, Vector2(pos.x, dropPos)):
 		notOverTheTop = true
-		dropPos += 1
+		if dropPos <= 18:
+			dropPos += 1
 	
 	#if first attempt fails, game over man!
 	if !notOverTheTop:
 		return -1
+	
+	#since it adds up until it fails
+	dropPos -= 1
 		
 	return dropPos
 
 func canMoveDown(piece: Array, pos: Vector2) -> bool:
-	for i in range(piece.size()):
-		for j in range(piece[i].size()):
+	for i in range(piece.size() - 1):
+		for j in range(piece[i].size() -1):
 			if(board[pos.y + i][pos.x + j] == 1 and piece[i][j] == 1):
+				return false
+			if pos.y + i >= HEIGHT or pos.x + j >= WIDTH:
 				return false
 	return true
 
 func simulateBoard(piece: Array, pos: Vector2) -> Array:
 	var sim = board.duplicate(true)
-	for i in range(piece.size()):
-		for j in range(piece[i].size()):
+	for i in range(piece.size() - 1):
+		for j in range(piece[i].size() -1 ):
 			if(piece[i][j] == 1):
 				sim[pos.y + i][pos.x + j] = 1
 	return sim

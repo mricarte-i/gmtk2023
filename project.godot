@@ -25,6 +25,10 @@ config/description="A GTMK Jam 2023 entry - play as the block dispatch system, p
 run/main_scene="res://3d_in_2d.tscn"
 config/icon="res://icon.png"
 
+[autoload]
+
+Global="*res://Global.gd"
+
 [display]
 
 window/size/width=1280
