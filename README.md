@@ -2,8 +2,10 @@
 
 Based on the 3D in 2D demo.
 Hopefully playable by the end of the jam...
+https://mricarte-i.github.io/gmtk2023/
 
 ## Current state of the game:
+https://mricarte-i.github.io/gmtk2023/
 https://github.com/mricarte-i/gmtk2023/assets/62481205/9d94250a-43c9-493b-b7b9-3fae02e1e97b
 
 ### Missing:
